@@ -34,9 +34,6 @@ for trial_i = 1:1:num_trials
     end % trial_j
 end % trial_i
 
-% if num_trials == 1
-%     S = eye(num_chans);
-% end
 UX = reshape(eeg, num_chans, num_smpls*num_trials);
 
 Q = UX*UX';
