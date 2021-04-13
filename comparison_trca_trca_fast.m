@@ -30,8 +30,7 @@ trca_fast_w=zeros(9,9,length(trial_num));
 for cv=1:10
     for m=1:length(trial_num)
         tic;
-        [w_tmp,~]=trca_fast(X(:,:,1:trial_num(m)));        
-        t=toc;
+        [w_tmp,~]=trca_fast(X(:,:,1:trial_num(m))); 
         trca_fast_t(cv,m)=toc;
         trca_fast_w(:,:,m)=w_tmp;
     end
