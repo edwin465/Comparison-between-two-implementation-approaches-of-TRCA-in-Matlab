@@ -49,9 +49,37 @@ In this comparison, we assume that each trial data is center. So in the trca.m, 
 
 Anyway, according to my experience, whether the trial data is centralized or not does not have much difference in the SSVEP recognition performance using the TRCA algorithm. After preprocessing, the mean of the pre-processed data may be very small or close to zero.
 
-#Conclusion
-According to the presented results, if the number of trials is not large, there is no difference between using trca() and trca_fast(). Actually, a subject's calibration trials is usually less than 6 in two widely used public SSVEP datasets, e.g., https://www.frontiersin.org/articles/10.3389/fnins.2020.00627/full and https://ieeexplore.ieee.org/document/7740878.
-However, for some SSVEP datasets, the number of calibration trials is more than 20, e.g., https://www.mdpi.com/1424-8220/21/4/1256 and https://academic.oup.com/gigascience/article/8/5/giz002/5304369. 
-Recently, many studies have interest in the cross-subject scenario, e.g., in https://iopscience.iop.org/article/10.1088/1741-2552/abcb6e/meta. The number of trials is usually very large. In this case, the trca_fast() should be more suitable. It can significantly speed up the calibration time.
+# Summary and Discussion
+- If the number of trials is not large, there is no difference between using trca() and trca_fast(). No need to use trca_fast(). Actually, a subject's calibration trials is usually less than 6 in two widely used public SSVEP datasets, e.g., https://www.frontiersin.org/articles/10.3389/fnins.2020.00627/full and https://ieeexplore.ieee.org/document/7740878. 
+- For some SSVEP datasets, the number of calibration trials is more than 20, e.g., https://www.mdpi.com/1424-8220/21/4/1256 and https://academic.oup.com/gigascience/article/8/5/giz002/5304369. In this case, using the trca_fast() can speed up the calibration.
+- Several recent studies have interest in the cross-subject scenario, e.g., in https://iopscience.iop.org/article/10.1088/1741-2552/abcb6e/meta. The number of trials is usually very large. In this case, it is strongly recommended to use the trca_fast().
 
+# Citation:
+If you use this code for a publication, please cite the following paper: 
+
+@article{wong2020spatial,
+
+   title={Spatial Filtering in SSVEP-based BCIs: Unified Framework and New Improvements},
+   
+   author={Wong,Chi Man and Wang, Boyu and Wang, Ze and Lao, Ka Fai and Rosa, Agostinho and Wan, Feng},
+   
+   title={{S}patial {F}iltering in {SSVEP}-based {BCI}s: {U}nified {F}ramework and {N}ew {I}mprovements},
+   
+   journal=IEEE Trans. Biomed. Eng.,
+   
+   volume={67},
+   
+   number={11},
+   
+   pages={3057 --3072},
+   
+   year={2020},
+   
+   publisher={IEEE}
+   
+}
+
+# Contact:
+
+Please email me (chiman465@gmail.com) if you find any mistakes and problems about it.
 
