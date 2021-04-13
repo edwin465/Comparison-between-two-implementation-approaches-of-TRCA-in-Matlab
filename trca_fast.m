@@ -24,13 +24,12 @@ function [W,V] = trca_fast(eeg)
 % E-mail: masaki@sccn.ucsd.edu
 
 % trca_fast(): TRCA with fast calculation speed
-% Edwin Wong, 6-Apr-2021
+% Chi Man Wong, 6-Apr-2021
 
 
 X1 = eeg(:,:);
 X2 = sum(eeg,3);
 S = X2*X2';
-% X1 = X1 - repmat(mean(X1,2),1,size(X1,2));
 Q = X1*X1';
 
 % TRCA eigenvalue algorithm
