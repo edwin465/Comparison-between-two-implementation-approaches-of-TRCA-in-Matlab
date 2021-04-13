@@ -37,7 +37,7 @@ Q = X1*X1';
 In mathematics, these two calculations are equivalent if each trial data has zero mean (please refer to the paper 'Spatial Filtering in SSVEP-Based BCIs: Unified Framework and New Improvements' in https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9006809 or https://www.researchgate.net/publication/339417095_Spatial_Filtering_in_SSVEP-based_BCIs_Unified_Framework_and_New_Improvements)
 
 # Comparison study
-We count the calculate time of trca() and trca_fast(). Then we compare their calculation times and their calculated eigenvectors. The following two figures show the difference between their calculation time under different number of trials and the difference between their calculated eigenvectors, respectively. The code can be found in comparison_trca_trca_fast.m
+We count the calculate time of trca() and trca_fast(). Then we compare their calculation times and their calculated eigenvectors. Note that this simulation is performed on a desktop PC with an i7 CPU (i7-4770 @ 3.4GHz) and 24 GB Ram. The following two figures show the difference between their calculation time under different number of trials and the difference between their calculated eigenvectors, respectively. The code can be found in comparison_trca_trca_fast.m
 
 ![image](https://github.com/edwin465/Comparison-between-two-implementation-approaches-of-TRCA-in-Matlab/blob/main/cal_time.png)
 Clearly, their calculation times have large difference，especially when the number of trials is more than 10. 
