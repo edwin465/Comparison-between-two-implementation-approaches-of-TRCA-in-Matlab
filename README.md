@@ -1,5 +1,5 @@
 # Comparison-between-two-implementation-approaches-of-TRCA-in-Matlab
-One of the state-of-the-art algorithms used in the SSVEP recognition is the task-related component analysis (TRCA). Here I compare two implementation approaches of TRCA in Matlab. One is implemented by Masaki Nakanishi in https://github.com/mnakanishi/TRCA-SSVEP/tree/master/src(see trca.m). Based on this version, I propose a new implementation approach, which has a shorter calculation time, see trca_fast.m.
+One of the state-of-the-art algorithms used in the SSVEP recognition is the task-related component analysis (TRCA). Here I compare two implementation approaches of TRCA in Matlab. One is implemented by Masaki Nakanishi in https://github.com/mnakanishi/TRCA-SSVEP/tree/master/src. Based on this version (see trca.m), I propose a new implementation approach, which has a faster calculation time, see trca_fast.m.
 
 The main difference between them is that the function trca() uses the FOR-loop to calculate the covariance matrix and the trca_fast() uses the matrix computation to calculate the covariance matrix. As we know that Matlab is better to do the calculation using the matrix computation than using the FOR-loop, the trca_fast() may do the calculation faster.
 
