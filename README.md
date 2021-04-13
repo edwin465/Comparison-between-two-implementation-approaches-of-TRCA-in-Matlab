@@ -9,11 +9,9 @@ It calculates the summation of the covariance matrices between any two trials in
 %     eeg         : Input eeg data 
 %                 (# of channels, Data length [sample], # of trials)
 for trial_i = 1:1:num_trials-1
-    x1 = squeeze(eeg(:,:,trial_i));
-    x1 = bsxfun(@minus, x1, mean(x1,2));
+    x1 = squeeze(eeg(:,:,trial_i));    
     for trial_j = trial_i+1:1:num_trials
-        x2 = squeeze(eeg(:,:,trial_j));
-        x2 = bsxfun(@minus, x2, mean(x2,2));
+        x2 = squeeze(eeg(:,:,trial_j));        
         S = S + x1*x2' + x2*x1';
     end % trial_j
 end % trial_i
@@ -21,6 +19,8 @@ UX = reshape(eeg, num_chans, num_smpls*num_trials);
 UX = bsxfun(@minus, UX, mean(UX,2));
 Q = UX*UX';
 ```
+
+(More details can be found in trca.m)
 
 ## Using matrix computation
 ```
@@ -32,14 +32,19 @@ S = X2*X2';
 Q = X1*X1';
 ```
 
+(More details can be found in trca_fast.m)
+
 In mathematics, these two calculations are equivalent if each trial data has zero mean (please refer to the paper 'Spatial Filtering in SSVEP-Based BCIs: Unified Framework and New Improvements' in https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9006809 or https://www.researchgate.net/publication/339417095_Spatial_Filtering_in_SSVEP-based_BCIs_Unified_Framework_and_New_Improvements)
 
-But their calculation times have large difference， especially when the number of trials is more than 10.
+The following two figures show the difference between their calculation time under different number of trials and the difference between their calculated eigen vectors, respectively.
 
-The following two figures show the difference between their calculation time under different number of trials.
+![image](https://github.com/edwin465/Comparison-between-two-implementation-approaches-of-TRCA-in-Matlab/blob/main/cal_time.png)
+Clearly, their calculation times have large difference， especially when the number of trials is more than 10.
 
+![image](https://github.com/edwin465/Comparison-between-two-implementation-approaches-of-TRCA-in-Matlab/blob/main/cal_error.png)
+Their eigen vectors have no difference.
 
-
+In this comparison, we assume that each trial data is center. 
 Anyway, according to my experience, whether the trial data is centralized or not does not have much difference in the SSVEP recognition performance using the TRCA algorithm.
 
 
